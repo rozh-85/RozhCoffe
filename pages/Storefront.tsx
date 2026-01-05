@@ -162,7 +162,7 @@ const Storefront: React.FC = () => {
                 </div>
             )}
 
-            <main className="max-w-4xl mx-auto px-4 py-6 space-y-12 pb-24">
+            <main className="max-w-4xl mx-auto px-4 py-6 space-y-12 pb-6">
                 {menuData.map((category) => (
                     <section key={category.id} id={`section-${category.id}`} className="scroll-mt-40">
                         <div className="flex items-center mb-6">
@@ -198,9 +198,9 @@ const Storefront: React.FC = () => {
                 />
             )}
 
-            <footer className="max-w-4xl mx-auto px-4 py-16 text-center text-gray-400 dark:text-zinc-600 text-sm border-t border-zinc-800/50 mt-12">
-                <span className="font-display text-4xl text-primary opacity-50 block mb-2">Rozh</span>
-                <p className="font-medium">The Art of Sweetness</p>
+            <footer className="max-w-4xl mx-auto px-4 py-0 text-center text-gray-400 dark:text-zinc-600 text-sm border-t border-zinc-800/10 mt-4 pb-20">
+                <span className="font-display text-5xl text-primary opacity-30 block mb-4">Rozh</span>
+                <p className="font-medium tracking-[0.2em] uppercase text-[10px]">The Art of Sweetness</p>
             </footer>
         </div>
     );

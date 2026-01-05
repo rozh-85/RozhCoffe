@@ -61,11 +61,11 @@ export default function CategorySelector({ categories, selectedCategoryId, onSel
               )}
             </div>
             <div className="flex flex-col whitespace-nowrap overflow-hidden">
-              <span className={`font-black text-xs transition-colors truncate tracking-tight ${selectedCategoryId === cat.id ? 'text-zinc-900' : 'text-gray-900 dark:text-white'
+              <span className={`font-black text-[13px] transition-colors truncate tracking-tight ${selectedCategoryId === cat.id ? 'text-zinc-900' : 'text-gray-900 dark:text-white'
                 }`}>
                 {cat.name}
               </span>
-              <span className={`text-[10px] font-bold opacity-70 ${selectedCategoryId === cat.id ? 'text-zinc-800' : 'text-primary'
+              <span className={`text-[11px] font-bold opacity-70 ${selectedCategoryId === cat.id ? 'text-zinc-800' : 'text-primary'
                 }`}>
                 {cat.itemCount} Items
               </span>
