@@ -31,15 +31,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
       </div>
 
       <div className="space-y-1 px-1">
-        <div className="flex items-center gap-2">
-          <span className="material-icons-round text-primary text-xl">restaurant</span>
-          <h3 className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+        <div className="flex items-center gap-1.5 overflow-hidden">
+          <span className="material-icons-round text-primary text-lg flex-shrink-0">restaurant</span>
+          <h3 className="font-bold text-[15px] sm:text-lg text-gray-900 dark:text-white group-hover:text-primary transition-colors truncate" title={product.name}>
             {product.name}
           </h3>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="material-icons-round text-primary/70 text-xl">point_of_sale</span>
-          <p className="text-primary font-semibold text-sm tracking-wide">
+        <div className="flex items-center gap-1.5 overflow-hidden">
+          <span className="material-icons-round text-primary/70 text-lg flex-shrink-0">point_of_sale</span>
+          <p className="text-primary font-semibold text-xs sm:text-sm tracking-wide truncate">
             {product.isMultiPriced ? 'Multi Priced' : (product.prices[0]?.price_value || 'N/A')}
           </p>
         </div>

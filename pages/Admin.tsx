@@ -163,14 +163,14 @@ const Admin: React.FC = () => {
                     image_url: imageUrl
                 }).eq('id', editingCategory.id);
                 if (error) throw error;
-                showToast(`Updated: ${catName}`);
+                showToast(`Category updated: ${catName}`, 'success');
             } else {
                 const { error } = await supabase.from('categories').insert([{
                     name: catName,
                     image_url: imageUrl
                 }]);
                 if (error) throw error;
-                showToast(`Added: ${catName}`);
+                showToast(`Category saved: ${catName}`, 'success');
             }
 
             resetCatForm();
@@ -258,7 +258,7 @@ const Admin: React.FC = () => {
                 if (deleteError) throw deleteError;
 
                 prodId = editingProduct.id;
-                showToast(`Updated: ${prodName}`);
+                showToast(`Product updated: ${prodName}`, 'success');
             } else {
                 const { data, error: insertError } = await supabase.from('products').insert([{
                     name: prodName,
@@ -270,7 +270,7 @@ const Admin: React.FC = () => {
                 if (insertError) throw insertError;
                 if (!data) throw new Error("Insert failed, no data returned.");
                 prodId = data.id;
-                showToast(`Added: ${prodName}`);
+                showToast(`Product saved: ${prodName}`, 'success');
             }
 
             // Extract numeric price and format it
@@ -360,15 +360,18 @@ const Admin: React.FC = () => {
                 <div className="fixed inset-0 flex items-center justify-center z-[130] pointer-events-none px-4">
                     <div className="bg-zinc-900 border border-zinc-800 p-8 rounded-[2.5rem] shadow-[0_30px_60px_-12px_rgba(0,0,0,0.8)] flex flex-col items-center gap-4 animate-in zoom-in-90 fade-in duration-300 pointer-events-auto min-w-[280px] text-center">
                         <div className={`w-14 h-14 rounded-full flex items-center justify-center ${toast.type === 'success' ? 'bg-emerald-500/10 text-emerald-500' :
-                            'bg-red-500/10 text-red-500'
+                            toast.type === 'warning' ? 'bg-amber-500/10 text-amber-500' :
+                                'bg-red-500/10 text-red-500'
                             }`}>
                             <span className="material-icons-round text-3xl">
-                                {toast.type === 'success' ? 'check_circle' : 'error'}
+                                {toast.type === 'success' ? 'check_circle' :
+                                    toast.type === 'warning' ? 'warning' : 'error'}
                             </span>
                         </div>
                         <div>
                             <p className="font-black text-xl text-white mb-1 tracking-tight">
-                                {toast.type === 'success' ? 'Success!' : 'Error'}
+                                {toast.type === 'success' ? 'Success!' :
+                                    toast.type === 'warning' ? 'Notice' : 'Error'}
                             </p>
                             <p className="text-zinc-500 text-sm font-semibold">{toast.message}</p>
                         </div>
