@@ -39,7 +39,10 @@ The admin dashboard is protected. Access it by navigating to `/#/login`.
   - Custom premium alerts and center-screen confirmation modals.
   - Multi-pricing support (e.g., Small, Medium, Large).
   - Image uploads directly to Supabase Storage.
-- **Authentication**: Secure static login with local session persistence.
+- **Authentication & Security**: 
+  - Secure login using **JWT (JSON Web Tokens)** for session management.
+  - Protected Admin routes that verify token persistence.
+  - Row Level Security (RLS) policies for Supabase Storage.
 
 ## 🛠 Tech Stack
 
