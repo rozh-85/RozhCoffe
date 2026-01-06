@@ -30,16 +30,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
 
-      <div className="space-y-1 px-1">
-        <div className="flex items-start gap-1.5 h-[42px] overflow-hidden">
-          <span className="material-icons-round text-primary text-xl flex-shrink-0 mt-0.5">restaurant</span>
-          <h3 className="font-extrabold text-[15px] sm:text-[17px] text-gray-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2 leading-tight" title={product.name}>
+      <div className="space-y-1.5 px-1">
+        <div className="flex items-center gap-2 h-7 overflow-hidden">
+          <div className="w-5 flex-shrink-0 flex justify-center">
+            <span className="material-icons-round text-primary text-xl">restaurant</span>
+          </div>
+          <h3 className="font-extrabold text-[15px] sm:text-[17px] text-gray-900 dark:text-white group-hover:text-primary transition-colors truncate leading-none tracking-tight" title={product.name}>
             {product.name}
           </h3>
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="material-icons-round text-primary/70 text-xl flex-shrink-0">point_of_sale</span>
-          <p className="text-primary font-black text-base sm:text-lg tracking-tight">
+        <div className="flex items-center gap-2 h-7 overflow-hidden">
+          <div className="w-5 flex-shrink-0 flex justify-center">
+            <span className="material-icons-round text-primary/70 text-lg">sell</span>
+          </div>
+          <p className="text-primary font-black text-base sm:text-lg tracking-tight leading-none">
             {product.isMultiPriced ? 'Multi Priced' : (product.prices[0]?.price_value || 'N/A')}
           </p>
         </div>
